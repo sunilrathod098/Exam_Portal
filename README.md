@@ -1,4 +1,4 @@
-# 🎓 Student Exam Portal
+8# 🎓 Student Exam Portal
 
 ## 🌟 Overview
 
@@ -38,7 +38,7 @@ The *Student Exam Portal* is a web application designed for conducting online qu
 1. *Clone the Repository*
 
    ```bash
-   git clone https://github.com/sunilrathos098/exam-portal.git
+   git clone https://github.com/sunilrathod098/exam-portal.git
    cd exam-portal
   
 
@@ -67,7 +67,7 @@ For questions or feedback, please reach out to sunilrajputhrathod@gmail.com
 
 
 ### Notes:
-- *GitHub URL:* Ensure the GitHub repository URL (https://github.com/rahulrathod01/exam-portal.git) is accurate and replace it if needed.
+- *GitHub URL:* Ensure the GitHub repository URL (https://github.com/sunilrathod098/exam-portal.git) is accurate and replace it if needed.
 - *Database Configuration:* Update server.js with the correct MySQL credentials.
 - *Frontend Path:* Adjust paths based on your project structure.
 - *Contact Information:* Replace the placeholder email with your actual contact information.
