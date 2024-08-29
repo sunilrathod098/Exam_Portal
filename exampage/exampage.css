@@ -1,0 +1,349 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212121;
+    height: 7vh;
+}
+
+.nav h2 {
+    color: white;
+    margin: 10px;
+}
+
+.home {
+    margin: 10px;
+}
+
+.home button {
+    background-color: rgb(246, 129, 0);
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#reg {
+    margin: 10px;
+
+}
+
+#reg button {
+    background-color: rgb(246, 129, 0);
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+
+}
+.row1 {
+    display: flex;
+}
+
+.topic {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cookieCard {
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(to right, rgb(246, 129, 0), rgb(230, 174, 114));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /* gap: 20px; */
+    padding: 20px;
+    margin: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cookieCard::before {
+    width: 150px;
+    height: 150px;
+    content: "";
+    background: linear-gradient(to right, rgb(246, 129, 0), rgb(230, 174, 114));
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    right: -25%;
+    top: -25%;
+}
+
+.cookieHeading {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: rgb(241, 241, 241);
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+.cookieDescription {
+    font-size: 0.9em;
+    color: rgb(241, 241, 241);
+    z-index: 2;
+    
+}
+
+.cookieDescription a {
+    color: rgb(241, 241, 241);
+}
+
+.acceptButton {
+    padding: 11px 20px;
+    background-color: white;
+    color: black;
+    transition-duration: .2s;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 2;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.acceptButton:hover {
+    background-color: rgb(200, 197, 197);
+    transition-duration: .2s;
+}
+
+#category-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer {
+    background-color: rgb(246, 129, 0);
+    color: white;
+    width: 110px;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+}
+
+#exam-section h2 {
+    text-align: center;
+    margin: 20px 0px;
+    font-size: 35px;
+}
+
+#question-container {
+    margin-bottom: 20px;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #212121;
+}
+
+/* Question Text */
+#question-container h3 {
+    font-size: 25px;
+    color: white;
+    padding: 20px;
+}
+
+#question-container div {
+    margin: 20px 30px;
+    
+}
+
+/* Hide the default radio button */
+#question-container input[type="radio"] {
+    display: none;
+}
+
+/* Custom radio button styling */
+#question-container .custom-radio {
+    display: inline-block;
+    position: relative;
+    padding-left: 40px; /* Space for the custom radio button */
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    line-height: 24px;
+}
+
+/* Style the custom radio button */
+#question-container .custom-radio::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+/* Style when the radio button is checked */
+#question-container input[type="radio"]:checked + .custom-radio::before {
+    background-color: rgb(246, 129, 0);
+    border: 2px solid rgb(246, 129, 0);
+}
+
+/* Optional: Style for hover effect */
+#question-container .custom-radio:hover::before {
+    border-color: rgb(246, 129, 0);
+}
+
+
+#question-container label {
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+    color: white;
+    ;
+}
+
+#next-button,
+#submit-button, #previous-button {
+    background-color: rgb(246, 129, 0);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    height: 40px;
+}
+
+#next-button:hover,
+#submit-button:hover,#previous-button:hover {
+    background-color: white;
+    border: 1px solid rgb(246, 129, 0);
+    color: rgb(246, 129, 0);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+}
+#scorecard {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#score {
+    font-size: 24px;
+    color: #333;
+}
+
+svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+    display: none;
+   }
+   
+   circle {
+    fill: none;
+    stroke: rgb(246, 129, 0);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+   }
+   
+   @keyframes rotate4 {
+    100% {
+     transform: rotate(360deg);
+    }
+   }
+   
+   @keyframes dash4 {
+    0% {
+     stroke-dasharray: 1, 200;
+     stroke-dashoffset: 0;
+    }
+   
+    50% {
+     stroke-dasharray: 90, 200;
+     stroke-dashoffset: -35px;
+    }
+   
+    100% {
+     stroke-dashoffset: -125px;
+    }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+    display: none;
+   }
+   
+   circle {
+    fill: none;
+    stroke: rgb(246, 129, 0);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+   }
+   
+   @keyframes rotate4 {
+    100% {
+     transform: rotate(360deg);
+    }
+   }
+   
+   @keyframes dash4 {
+    0% {
+     stroke-dasharray: 1, 200;
+     stroke-dashoffset: 0;
+    }
+   
+    50% {
+     stroke-dasharray: 90, 200;
+     stroke-dashoffset: -35px;
+    }
+   
+    100% {
+     stroke-dashoffset: -125px;
+    }
+   } 

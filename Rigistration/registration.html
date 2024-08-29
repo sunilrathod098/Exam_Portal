@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../Rigistration/register.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <form id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <small id="passwordMismatch" style="color: red; display: none;">Passwords do not match</small>
+            <button type="submit">Register</button>
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const password = document.getElementById('password');
+                const confirmPassword = document.getElementById('confirm_password');
+                const passwordMismatchMessage = document.getElementById('passwordMismatch');
+                const submitButton = document.querySelector('button[type="submit"]');
+
+                function validatePasswords() {
+                    if (password.value !== confirmPassword.value) {
+                        passwordMismatchMessage.style.display = 'block';
+                        submitButton.disabled = true;
+                    } else {
+                        passwordMismatchMessage.style.display = 'none';
+                        submitButton.disabled = false;
+                    }
+                }
+
+                confirmPassword.addEventListener('input', validatePasswords);
+
+                document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirm_password').value;
+
+                    if (password !== confirmPassword) {
+                        passwordMismatchMessage.style.display = 'block';
+                        return;
+                    }
+
+                    fetch('http://localhost:3000/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name, email, password })
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Registration failed');
+                        alert('Registration successful! Redirecting to login page...');
+                        window.location.href = '../loginpage/login.html';
+                    })
+                    .catch(error => alert(error.message));
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
