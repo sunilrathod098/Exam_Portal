@@ -1,5 +1,11 @@
 /* Reset some basic elements */
-body, h1, form, label, input, button, div {
+body,
+h1,
+form,
+label,
+input,
+button,
+div {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +24,8 @@ body {
 
 /* Centering the form container */
 .container {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent white background */
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);

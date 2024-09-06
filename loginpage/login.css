@@ -1,5 +1,12 @@
 /* Reset some basic elements */
-body, h1, form, label, input, button, div, p {
+body,
+h1,
+form,
+label,
+input,
+button,
+div,
+p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +15,7 @@ body, h1, form, label, input, button, div, p {
 /* Background and font styling */
 body {
     font-family: 'Arial', sans-serif;
-    background: url('../loginpage/login.jpg') no-repeat center center fixed;
+    background: url('../loginpage/loginpage.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -18,7 +25,8 @@ body {
 
 /* Container styling */
 .container {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent white background */
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);

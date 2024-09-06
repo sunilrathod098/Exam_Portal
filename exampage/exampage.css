@@ -22,7 +22,7 @@
 }
 
 .home button {
-    background-color: rgb(246, 129, 0);
+    background-color: rgb(62, 179, 238);
     border: 0px;
     padding: 10px;
     border-radius: 10px;
@@ -47,6 +47,7 @@
     cursor: pointer;
 
 }
+
 .row1 {
     display: flex;
 }
@@ -63,7 +64,7 @@
 .cookieCard {
     width: 300px;
     height: 200px;
-    background: linear-gradient(to right, rgb(246, 129, 0), rgb(230, 174, 114));
+    background: linear-gradient(to right, #4bc2dd, rgb(93, 170, 184));
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -79,7 +80,7 @@
     width: 150px;
     height: 150px;
     content: "";
-    background: linear-gradient(to right, rgb(246, 129, 0), rgb(230, 174, 114));
+    background: linear-gradient(to right, rgb(42, 140, 200), rgb(85, 217, 240));
     position: absolute;
     z-index: 1;
     border-radius: 50%;
@@ -99,7 +100,7 @@
     font-size: 0.9em;
     color: rgb(241, 241, 241);
     z-index: 2;
-    
+
 }
 
 .cookieDescription a {
@@ -132,8 +133,19 @@
     justify-content: center;
 }
 
+#username {
+    background-color: rgb(50, 202, 236);
+    color: white;
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    right: 1;
+    margin: 20px;
+}
+
 #timer {
-    background-color: rgb(246, 129, 0);
+    background-color: rgb(63, 194, 227);
     color: white;
     width: 110px;
     padding: 5px;
@@ -166,7 +178,7 @@
 
 #question-container div {
     margin: 20px 30px;
-    
+
 }
 
 /* Hide the default radio button */
@@ -178,7 +190,8 @@
 #question-container .custom-radio {
     display: inline-block;
     position: relative;
-    padding-left: 40px; /* Space for the custom radio button */
+    padding-left: 40px;
+    /* Space for the custom radio button */
     cursor: pointer;
     font-size: 20px;
     color: white;
@@ -201,14 +214,14 @@
 }
 
 /* Style when the radio button is checked */
-#question-container input[type="radio"]:checked + .custom-radio::before {
-    background-color: rgb(246, 129, 0);
-    border: 2px solid rgb(246, 129, 0);
+#question-container input[type="radio"]:checked+.custom-radio::before {
+    background-color: rgb(38, 173, 218);
+    border: 2px solid rgb(61, 216, 211);
 }
 
 /* Optional: Style for hover effect */
 #question-container .custom-radio:hover::before {
-    border-color: rgb(246, 129, 0);
+    border-color: rgb(82, 200, 215);
 }
 
 
@@ -221,8 +234,9 @@
 }
 
 #next-button,
-#submit-button, #previous-button {
-    background-color: rgb(246, 129, 0);
+#submit-button,
+#previous-button {
+    background-color: rgb(53, 214, 232);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -234,23 +248,25 @@
 }
 
 #next-button:hover,
-#submit-button:hover,#previous-button:hover {
+#submit-button:hover,
+#previous-button:hover {
     background-color: white;
-    border: 1px solid rgb(246, 129, 0);
-    color: rgb(246, 129, 0);
+    border: 1px solid rgb(38, 173, 210);
+    color: rgb(50, 195, 221);
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     height: 40px;
 }
+
 #scorecard {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -264,39 +280,39 @@ svg {
     transform-origin: center;
     animation: rotate4 2s linear infinite;
     display: none;
-   }
-   
-   circle {
+}
+
+circle {
     fill: none;
-    stroke: rgb(246, 129, 0);
-    stroke-width: 2;
+    stroke: rgb(26, 197, 212);
+    stroke-width: 4;
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     stroke-linecap: round;
     animation: dash4 1.5s ease-in-out infinite;
-   }
-   
-   @keyframes rotate4 {
+}
+
+@keyframes rotate4 {
     100% {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
-   
-   @keyframes dash4 {
+}
+
+@keyframes dash4 {
     0% {
-     stroke-dasharray: 1, 200;
-     stroke-dashoffset: 0;
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
     }
-   
+
     50% {
-     stroke-dasharray: 90, 200;
-     stroke-dashoffset: -35px;
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
     }
-   
+
     100% {
-     stroke-dashoffset: -125px;
+        stroke-dashoffset: -125px;
     }
-   }
+}
 
 
 
@@ -314,9 +330,9 @@ svg {
     transform-origin: center;
     animation: rotate4 2s linear infinite;
     display: none;
-   }
-   
-   circle {
+}
+
+circle {
     fill: none;
     stroke: rgb(246, 129, 0);
     stroke-width: 2;
@@ -324,26 +340,26 @@ svg {
     stroke-dashoffset: 0;
     stroke-linecap: round;
     animation: dash4 1.5s ease-in-out infinite;
-   }
-   
-   @keyframes rotate4 {
+}
+
+@keyframes rotate4 {
     100% {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
-   
-   @keyframes dash4 {
+}
+
+@keyframes dash4 {
     0% {
-     stroke-dasharray: 1, 200;
-     stroke-dashoffset: 0;
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
     }
-   
+
     50% {
-     stroke-dasharray: 90, 200;
-     stroke-dashoffset: -35px;
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
     }
-   
+
     100% {
-     stroke-dashoffset: -125px;
+        stroke-dashoffset: -125px;
     }
-   } 
+}

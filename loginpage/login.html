@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../loginpage/login.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Login</h1>
@@ -20,7 +22,7 @@
             <p>Don't have an account? <a href="../Rigistration/registration.html">Register</a></p>
         </div>
         <script>
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
+            document.getElementById('loginForm').addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 const email = document.getElementById('email').value;
@@ -33,18 +35,19 @@
                     },
                     body: JSON.stringify({ email, password })
                 })
-                .then(response => {
-                    if (!response.ok) throw new Error('Login failed');
-                    return response.json();
-                })
-                .then(data => {
-                    localStorage.setItem('loggedInUser', JSON.stringify(data));
-                    alert('Login successful!');
-                    window.location.href = '../exampage/exampage.html'; // Replace with your exam page
-                })
-                .catch(error => alert(error.message));
+                    .then(response => {
+                        if (!response.ok) throw new Error('Login failed');
+                        return response.json();
+                    })
+                    .then(data => {
+                        localStorage.setItem('loggedInUser', JSON.stringify(data));
+                        alert('Login successful!');
+                        window.location.href = '../exampage/exampage.html'; // Replace with your exam page
+                    })
+                    .catch(error => alert(error.message));
             });
         </script>
     </div>
 </body>
+
 </html>

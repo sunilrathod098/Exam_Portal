@@ -12,23 +12,22 @@
 <body>
     <div class="nav">
         <h2>Exam Portal</h2>
-        <div id="reg">
+        <!-- <div id="reg">
             <a href="../loginpage/login.html"><button>Login</button></a>
             <a href="../Rigistration/registration.html"><button>SignUp</button></a>
 
-        </div>
+        </div> -->
     </div>
     <div style="display: flex; justify-content: center;">
         <svg id="spinner" viewBox="25 25 50 50">
             <circle r="20" cy="50" cx="50"></circle>
         </svg>
     </div>
-    <div id="app">
+    <div id="app" style="display: none;">
         <div id="category-list">
             <div class="row1">
                 <div class="cookieCard">
                     <p class="cookieHeading">General Knowledge</p>
-                    <!--9-->
                     <p class="cookieDescription">Test you General Knowledge skills</p>
                     <p class="cookieDescription">Exam contains 10 questions</p>
                     <p class="cookieDescription">Time limit : 15 minutes</p>
@@ -36,7 +35,6 @@
                 </div>
                 <div class="cookieCard">
                     <p class="cookieHeading">Video Games</p>
-                    <!-- 15 -->
                     <p class="cookieDescription">Test you Video Games skills</p>
                     <p class="cookieDescription">Exam contains 15 questions</p>
                     <p class="cookieDescription">Time limit : 15 minutes</p>
@@ -44,7 +42,6 @@
                 </div>
                 <div class="cookieCard">
                     <p class="cookieHeading">Sports</p>
-                    <!-- 21 -->
                     <p class="cookieDescription">Test you sports skills</p>
                     <p class="cookieDescription">Exam contains 15 questions</p>
                     <p class="cookieDescription">Time limit : 15 minutes</p>
@@ -54,7 +51,6 @@
             <div class="row1">
                 <div class="cookieCard">
                     <p class="cookieHeading">Politics </p>
-                    <!-- 24 -->
                     <p class="cookieDescription">Test you Politics skills</p>
                     <p class="cookieDescription">Exam contains 15 questions</p>
                     <p class="cookieDescription">Time limit : 15 minutes</p>
@@ -62,7 +58,6 @@
                 </div>
                 <div class="cookieCard">
                     <p class="cookieHeading">History</p>
-                    <!-- 23 -->
                     <p class="cookieDescription">Test you History skills</p>
                     <p class="cookieDescription">Exam contains 15 questions</p>
                     <p class="cookieDescription">Time limit : 15 minutes</p>
@@ -70,7 +65,6 @@
                 </div>
                 <div class="cookieCard">
                     <p class="cookieHeading">Geography</p>
-                    <!-- 22 -->
                     <p class="cookieDescription">Test you Geography skills</p>
                     <p class="cookieDescription">Exam contains 15 questions</p>
                     <p class="cookieDescription">Time limit : 15 minutes</p>
@@ -79,18 +73,20 @@
             </div>
         </div>
         <div id="exam-section" style="display: none;">
+            <div id="username">Welcome, <span id="user-name"></span></div>
             <div id="timer">Time left: <span id="timer-count">00:00</span></div>
             <h2 id="category-title"></h2>
             <div id="question-container"></div>
         </div>
         <div id="scorecard" style="display: none;">
             <h2>Scorecard</h2>
-            <p id="score" class="cookieDescription">Time limit : 15 minutes</p>
+            <p id="score" class="cookieDescription"></p>
             <div class="home">
                 <a href="../exampage/exampage.html">
                     <button>Home</button>
                 </a>
             </div>
+        </div>
         </div>
 
     </div>

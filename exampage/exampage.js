@@ -3,38 +3,57 @@ let currentQuestionIndex = 0;
 let timer;
 let score = 0;
 const TIMER_DURATION = 60 * 15;
-let selectedAnswers = []; // Array to keep track of selected answers
-let shuffledOptions = []; // Array to keep track of shuffled options
+let selectedAnswers = []; // In this array we keep track of selected answers
+let shuffledOptions = []; // And this array we keep track of shuffled options
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+        alert("Please log in to access the exam.");
+        window.location.href = "../loginpage/login.html"; // Here the re-direct to login if not logged in
+    } else {
+        document.getElementById("app").style.display = "block";
+        document.getElementById("user-name").innerText = loggedInUser.name || "User"; // Display the user's name
+    }
+});
 
 function startExam(category) {
-    document.getElementById('spinner').style.display = 'block';
-    document.getElementById('category-list').style.display = 'none';
+    const spinner = document.getElementById('spinner');
+    const categoryList = document.getElementById('category-list');
+    const examSection = document.getElementById('exam-section');
 
-    fetch(`https://opentdb.com/api.php?amount=10&category=${category}&type=multiple`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.response_code === 0) {
-                questions = data.results;
-                currentQuestionIndex = 0;
-                score = 0;
-                selectedAnswers = Array(questions.length).fill(null); // Initialize selected answers array
-                shuffledOptions = Array(questions.length).fill(null); // Initialize shuffled options array
-                document.getElementById('category-title').innerText = `Exam for ${questions[0].category}`;
-                document.getElementById('exam-section').style.display = 'block';
-                document.getElementById('category-list').style.display = 'none';
-                document.getElementById('reg').style.display = 'none';
-                document.getElementById('spinner').style.display = 'none';
+    if (spinner && categoryList && examSection) {
+        spinner.style.display = 'block';
+        categoryList.style.display = 'none';
 
-                loadQuestion();
-                startTimer();
-            } else {
+        fetch(`https://opentdb.com/api.php?amount=10&category=${category}&type=multiple`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Log the API response
+                if (data.response_code === 0) {
+                    questions = data.results;
+                    currentQuestionIndex = 0;
+                    score = 0;
+                    selectedAnswers = Array(questions.length).fill(null);
+                    shuffledOptions = Array(questions.length).fill(null);
+                    document.getElementById('category-title').innerText = `Exam for ${questions[0].category}`;
+                    examSection.style.display = 'block';
+                    spinner.style.display = 'none';
+                    loadQuestion();
+                    startTimer();
+                } else {
+                    alert('Error fetching questions. Please try again.');
+                    spinner.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching questions:', error);
                 alert('Error fetching questions. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching questions:', error);
-            alert('Error fetching questions. Please try again.');
-        });
+                spinner.style.display = 'none';
+            });
+    } else {
+        console.error('One or more elements are missing from the DOM.');
+    }
 }
 
 function loadQuestion() {
@@ -46,7 +65,7 @@ function loadQuestion() {
     const question = questions[currentQuestionIndex];
     const questionNumber = currentQuestionIndex + 1;
 
-    // Check if the options are already shuffled for this question
+    // Check here if the options are already shuffled for this question
     if (!shuffledOptions[currentQuestionIndex]) {
         const options = [...question.incorrect_answers, question.correct_answer];
         shuffledOptions[currentQuestionIndex] = shuffleArray(options);
@@ -165,15 +184,10 @@ function shuffleArray(array) {
 
 
 
-
-
-
-
-
 function endExam() {
     clearInterval(timer);
 
-    // Hide the exam section and show the scorecard
+    // In this section we are hide the exam section and show the scorecard
     document.getElementById('exam-section').style.display = 'none';
     document.getElementById('scorecard').style.display = 'block';
     document.getElementById('score').innerText = `You answered ${score} out of ${questions.length} questions correctly in ${questions[0].category}`;
@@ -189,8 +203,9 @@ function saveResultsToServer() {
         const userId = user.id;
         const examCategory = questions[0].category;
         const timeTaken = document.getElementById('timer-count').innerText;
+        const examDate = new Date().toISOString().split('T')[0]; 
 
-        // Prepare the data to be sent
+        // Here we are Prepare the data to be sent to server.
         const resultData = {
             user_id: userId,
             exam_category: examCategory,
@@ -198,10 +213,11 @@ function saveResultsToServer() {
             total_questions: questions.length,
             correct_answers: score,
             incorrect_answers: questions.length - score,
-            time_taken: timeTaken
+            time_taken: timeTaken,
+            exam_date: examDate
         };
 
-        // Make the POST request to save results
+        // Make the POST request to save results into the server.
         fetch('http://localhost:3000/results', {  // Adjust URL based on your server setup
             method: 'POST',
             headers: {
@@ -219,3 +235,10 @@ function saveResultsToServer() {
         alert('User not logged in.');
     }
 }
+
+
+
+
+
+
+
