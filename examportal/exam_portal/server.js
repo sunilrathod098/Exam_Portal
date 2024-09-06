@@ -1,3 +1,5 @@
+require('dotenv').config();  // Load environment variables
+
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -5,16 +7,16 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'sunil@2002', // Replace with your MySQL password
-    database: 'at_exam_portal'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 });
 
 db.connect(err => {
@@ -42,7 +44,6 @@ app.post('/register', (req, res) => {
     });
 });
 
-
 // Login endpoint
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -61,15 +62,14 @@ app.post('/login', (req, res) => {
     });
 });
 
-
 // Endpoint to save exam results
 app.post('/results', (req, res) => {
     const { user_id, exam_category, score, total_questions, correct_answers, incorrect_answers, time_taken } = req.body;
 
-
     if (!user_id || !exam_category || !score || !total_questions || !correct_answers || !incorrect_answers || !time_taken) {
         return res.status(400).send('All fields are required');
     }
+
     const sql = 'INSERT INTO std_results (user_id, exam_category, score, total_questions, correct_answers, incorrect_answers, time_taken) VALUES (?, ?, ?, ?, ?, ?, ?)';
     db.query(sql, [user_id, exam_category, score, total_questions, correct_answers, incorrect_answers, time_taken], (err, result) => {
         if (err) return res.status(500).send('Error saving exam results');
@@ -93,4 +93,3 @@ app.get('/results/:userId', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
-
